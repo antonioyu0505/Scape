@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="Scape"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/DialogueBox.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+DialogueDatabase="*res://Scripts/DialogueDatabase.gd"
 
 [input]
 
