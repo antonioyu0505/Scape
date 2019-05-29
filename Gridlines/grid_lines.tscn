@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Gridlines/grid_lines.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+position = Vector2( 32, 32 )
+
+[node name="grid_lines" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+
+
