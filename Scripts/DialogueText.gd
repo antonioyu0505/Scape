@@ -8,5 +8,4 @@ func setText(text):
 	
 func _on_Timer_timeout():
 	set_visible_characters(get_visible_characters() + 1)
-	if(visible_characters > get_total_character_count()):
-		emit_signal("finish")
+	if(visible_characters > get_total_character_count()): emit_signal("finish")

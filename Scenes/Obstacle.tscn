@@ -27,13 +27,23 @@ _sections_unfolded = [ "Animation" ]
 [node name="object" type="Sprite" parent="." index="2"]
 
 position = Vector2( -160, -224 )
+scale = Vector2( -1, 1 )
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 5
 frame = 48
 _sections_unfolded = [ "Animation" ]
 
-[node name="stairs" type="Sprite" parent="." index="3"]
+[node name="square1" type="Sprite" parent="." index="3"]
+
+position = Vector2( -160, -96 )
+texture = ExtResource( 1 )
+vframes = 10
+hframes = 5
+frame = 24
+_sections_unfolded = [ "Animation" ]
+
+[node name="stairs" type="Sprite" parent="." index="4"]
 
 position = Vector2( -32, -96 )
 texture = ExtResource( 1 )
@@ -42,7 +52,7 @@ hframes = 5
 frame = 34
 _sections_unfolded = [ "Animation" ]
 
-[node name="vert1" type="Sprite" parent="." index="4"]
+[node name="vert1" type="Sprite" parent="." index="5"]
 
 position = Vector2( -288, -32 )
 texture = ExtResource( 1 )
@@ -51,7 +61,7 @@ hframes = 5
 frame = 37
 _sections_unfolded = [ "Animation" ]
 
-[node name="vert2" type="Sprite" parent="." index="5"]
+[node name="vert2" type="Sprite" parent="." index="6"]
 
 position = Vector2( -224, -32 )
 texture = ExtResource( 1 )
@@ -60,7 +70,7 @@ hframes = 5
 frame = 1
 _sections_unfolded = [ "Animation" ]
 
-[node name="vert3" type="Sprite" parent="." index="6"]
+[node name="vert3" type="Sprite" parent="." index="7"]
 
 position = Vector2( -96, -224 )
 texture = ExtResource( 1 )
@@ -69,7 +79,7 @@ hframes = 5
 frame = 9
 _sections_unfolded = [ "Animation" ]
 
-[node name="inter1" type="Sprite" parent="." index="7"]
+[node name="inter1" type="Sprite" parent="." index="8"]
 
 position = Vector2( -32, -224 )
 texture = ExtResource( 1 )
@@ -78,16 +88,16 @@ hframes = 5
 frame = 32
 _sections_unfolded = [ "Animation" ]
 
-[node name="inter2" type="Sprite" parent="." index="8"]
+[node name="inter2" type="Sprite" parent="." index="9"]
 
 position = Vector2( -288, -160 )
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 5
 frame = 4
-_sections_unfolded = [ "Animation" ]
+_sections_unfolded = [ "Animation", "Offset" ]
 
-[node name="hori1" type="Sprite" parent="." index="9"]
+[node name="hori1" type="Sprite" parent="." index="10"]
 
 position = Vector2( -224, -160 )
 texture = ExtResource( 1 )
@@ -96,7 +106,7 @@ hframes = 5
 frame = 17
 _sections_unfolded = [ "Animation" ]
 
-[node name="hori2" type="Sprite" parent="." index="10"]
+[node name="hori2" type="Sprite" parent="." index="11"]
 
 position = Vector2( -160, -160 )
 texture = ExtResource( 1 )
@@ -105,7 +115,7 @@ hframes = 5
 frame = 35
 _sections_unfolded = [ "Animation" ]
 
-[node name="hori3" type="Sprite" parent="." index="11"]
+[node name="hori3" type="Sprite" parent="." index="12"]
 
 position = Vector2( -96, -160 )
 texture = ExtResource( 1 )
@@ -114,7 +124,7 @@ hframes = 5
 frame = 31
 _sections_unfolded = [ "Animation" ]
 
-[node name="hori4" type="Sprite" parent="." index="12"]
+[node name="hori4" type="Sprite" parent="." index="13"]
 
 position = Vector2( -32, -160 )
 texture = ExtResource( 1 )
@@ -123,7 +133,7 @@ hframes = 5
 frame = 27
 _sections_unfolded = [ "Animation" ]
 
-[node name="corner1" type="Sprite" parent="." index="13"]
+[node name="corner1" type="Sprite" parent="." index="14"]
 
 position = Vector2( -288, -96 )
 texture = ExtResource( 1 )
@@ -132,22 +142,13 @@ hframes = 5
 frame = 10
 _sections_unfolded = [ "Animation" ]
 
-[node name="corner2" type="Sprite" parent="." index="14"]
+[node name="corner2" type="Sprite" parent="." index="15"]
 
 position = Vector2( -224, -96 )
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 5
 frame = 6
-_sections_unfolded = [ "Animation" ]
-
-[node name="square1" type="Sprite" parent="." index="15"]
-
-position = Vector2( -160, -96 )
-texture = ExtResource( 1 )
-vframes = 10
-hframes = 5
-frame = 24
 _sections_unfolded = [ "Animation" ]
 
 [node name="square2" type="Sprite" parent="." index="16"]

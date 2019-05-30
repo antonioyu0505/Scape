@@ -20,6 +20,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme" ]
 
 [node name="Panel" type="Panel" parent="." index="0"]
 
@@ -35,6 +36,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Grow Direction", "Hint", "Mouse", "Rect", "Theme", "Visibility" ]
 
 [node name="Text" type="RichTextLabel" parent="Panel" index="0"]
 
@@ -65,7 +67,7 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 3 )
-_sections_unfolded = [ "BBCode", "custom_fonts" ]
+_sections_unfolded = [ "BBCode", "Grow Direction", "Margin", "custom_fonts" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel" index="1"]
 
@@ -73,10 +75,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 704.0
-margin_top = 224.0
-margin_right = 896.0
-margin_bottom = 266.0
+margin_left = 608.0
+margin_top = 96.0
+margin_right = 716.0
+margin_bottom = 138.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -84,22 +86,24 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "Theme", "custom_constants" ]
 
 [node name="Next" type="Button" parent="Panel/HBoxContainer" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 50.0
+margin_right = 108.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
@@ -108,10 +112,11 @@ group = null
 text = "Next"
 flat = false
 align = 1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
 [node name="Done" type="Button" parent="Panel/HBoxContainer" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -124,7 +129,7 @@ rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = false
@@ -134,76 +139,24 @@ group = null
 text = "Done"
 flat = false
 align = 1
-_sections_unfolded = [ "Material", "Visibility", "custom_fonts" ]
+_sections_unfolded = [ "Material", "Mouse", "Size Flags", "Visibility", "custom_fonts" ]
 
-[node name="Button" type="Button" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 64.0
-margin_top = 192.0
-margin_right = 192.0
-margin_bottom = 256.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Start"
-flat = false
-align = 1
-
-[node name="Button2" type="Button" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 256.0
-margin_top = 192.0
-margin_right = 384.0
-margin_bottom = 256.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "End"
-flat = false
-align = 1
-
-[node name="DialoguePlayer" type="Node" parent="." index="3"]
+[node name="DialoguePlayer" type="Node" parent="." index="1"]
 
 script = ExtResource( 4 )
 
-[node name="Timer" type="Timer" parent="." index="4"]
+[node name="Timer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 0.05
 one_shot = false
 autostart = false
 
-[connection signal="finish" from="Panel/Text" to="." method="_on_Text_finish"]
+[connection signal="finish" from="Panel/Text" to="DialoguePlayer" method="_on_Text_finish"]
 
 [connection signal="pressed" from="Panel/HBoxContainer/Next" to="." method="_on_Next_pressed"]
 
-[connection signal="pressed" from="Panel/HBoxContainer/Done" to="." method="_on_Next_pressed"]
-
-[connection signal="pressed" from="Button" to="DialoguePlayer" method="_on_Start_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Done" to="." method="_on_Done_pressed"]
 
 [connection signal="finish" from="DialoguePlayer" to="." method="_on_DialoguePlayer_finish"]
 

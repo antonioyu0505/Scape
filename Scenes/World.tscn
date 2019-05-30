@@ -1,11 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tiles/floor.tres" type="TileSet" id=1]
-[ext_resource path="res://Tiles/map.tres" type="TileSet" id=2]
+[ext_resource path="res://Tiles/dungeon.tres" type="TileSet" id=2]
 [ext_resource path="res://Scripts/grid.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/pawn.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Wall.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/DialogueBox.tscn" type="PackedScene" id=7]
 
-[node name="World" type="Node"]
+[node name="World" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="Floor" type="TileMap" parent="." index="0"]
 
@@ -45,11 +60,48 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 1610612750, 0, 1, -1073741819, 0, 2, -1073741819, 0, 3, -1073741819, 0, 4, -1073741819, 0, 5, -1073741819, 0, 6, -1073741819, 0, 7, -1073741819, 0, 8, -1073741819, 0, 9, -1073741819, 0, 10, -1073741819, 0, 11, -1073741819, 0, 12, -1073741819, 0, 13, -1073741810, 0, 65536, 1610612741, 0, 65549, 5, 0, 131072, 1610612741, 0, 131085, 5, 0, 196608, 1610612741, 0, 196621, 5, 0, 262144, 1610612741, 0, 262157, 5, 0, 327680, 1610612741, 0, 327693, 5, 0, 393216, 1610612741, 0, 393229, 5, 0, 458752, -1610612722, 0, 458753, -1610612731, 0, 458754, -1610612731, 0, 458755, -1610612731, 0, 458756, -1610612731, 0, 458757, -1610612731, 0, 458758, -1610612731, 0, 458759, -1610612731, 0, 458760, -1610612731, 0, 458761, -1610612731, 0, 458762, -1610612731, 0, 458763, -1610612731, 0, 458764, -1610612731, 0, 458765, 14, 0 )
+tile_data = PoolIntArray( 0, 1610612751, 0, 1, -1073741818, 0, 2, 9, 0, 3, -1073741818, 0, 4, -1073741818, 0, 5, -1073741818, 0, 6, -1073741818, 0, 7, -1073741818, 0, 8, -1073741818, 0, 9, -1073741818, 0, 10, -1073741818, 0, 11, -1073741818, 0, 12, -1073741818, 0, 13, -1073741809, 0, 65536, 1610612742, 0, 65537, 4, 0, 65538, -1073741814, 0, 65549, 6, 0, 131072, -1073741815, 0, 131073, 1610612746, 0, 131074, 1610612750, 0, 131085, 6, 0, 196608, 1610612742, 0, 196612, 1610612739, 0, 196621, 6, 0, 262144, 1610612742, 0, 262147, 1610612739, 0, 262157, 6, 0, 327680, 1610612742, 0, 327693, 6, 0, 393216, 1610612742, 0, 393229, 6, 0, 458752, -1610612721, 0, 458753, -1610612730, 0, 458754, -1610612730, 0, 458755, -1610612730, 0, 458756, -1610612730, 0, 458757, -1610612730, 0, 458758, -1610612730, 0, 458759, -1610612730, 0, 458760, -1610612730, 0, 458761, -1610612730, 0, 458762, -1610612730, 0, 458763, -1610612730, 0, 458764, -1610612730, 0, 458765, 15, 0 )
 script = ExtResource( 3 )
+_sections_unfolded = [ "Pause" ]
 
-[node name="Player" parent="Map" index="0" instance=ExtResource( 4 )]
+[node name="Note1" type="Node2D" parent="Map" index="0"]
 
+position = Vector2( 288, 224 )
+script = ExtResource( 4 )
+type = 3
+
+[node name="Note2" type="Node2D" parent="Map" index="1"]
+
+position = Vector2( 224, 288 )
+script = ExtResource( 4 )
+type = 3
+
+[node name="Player" parent="Map" index="2" instance=ExtResource( 5 )]
+
+pause_mode = 1
+position = Vector2( 224, 224 )
+_sections_unfolded = [ "Pause", "Transform" ]
 type = 0
+
+[node name="Wall" type="Node2D" parent="Map" index="3"]
+
+position = Vector2( 96, 160 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+type = 2
+
+[node name="DialogueBox" parent="Map" index="4" instance=ExtResource( 7 )]
+
+pause_mode = 2
+visible = false
+margin_left = 96.0
+margin_top = 544.0
+margin_right = 832.0
+margin_bottom = 704.0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Pause", "Rect", "Size Flags", "Theme" ]
+
+[connection signal="finish" from="Map/Player" to="Map" method="_on_Player_finish"]
+
+[connection signal="end" from="Map/DialogueBox" to="Map" method="_on_DialogueBox_end"]
 
 
