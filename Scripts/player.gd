@@ -3,6 +3,7 @@ extends "pawn.gd"
 signal finish()
 
 onready var Grid = get_parent()
+var looking_direction
 
 # TODO: Update function for the animation when the character turns #
 
@@ -15,14 +16,19 @@ func get_input_direction():
 func _process(delta):
 	var input_direction = get_input_direction()
 	if(not input_direction): return
-	var target_position = Grid.request_move(self, input_direction)
+	looking_direction = input_direction
+	var target_position = Grid.request_position(self, input_direction, "move")
 	var direction = player_direction(input_direction)
 	update_direction(direction)
-	if(target_position): 
-		move_to(target_position, direction)
+	if(target_position): move_to(target_position, direction)
+
+func _input(event):
+	if(Input.is_action_just_pressed("ui_accept")):
+		if(looking_direction): Grid.request_position(self, looking_direction, "interact")
+#		if(direction): Grid.request_position(self, direction, "interact")
 	
 func player_direction(input_direction):
-	var direction = "right"
+	var direction
 	if(input_direction.x == 1): direction = "right"
 	elif(input_direction.x == -1): direction = "left"
 	elif(input_direction.y == 1): direction = "down"

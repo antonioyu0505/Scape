@@ -20,7 +20,7 @@ DialogueDatabase="*res://Scripts/DialogueDatabase.gd"
 
 [display]
 
-window/size/height=960
+window/size/height=800
 
 [input]
 

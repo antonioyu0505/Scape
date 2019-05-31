@@ -15,7 +15,6 @@ func startDialogue(note):
 	dialogues = DialogueDatabase.load_dialogue(note + ".json").values()
 	index = 0
 	dialogue = dialogues[index]
-	print(dialogue)
 	emit_signal("start")
 
 func _on_Text_finish():
