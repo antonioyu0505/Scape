@@ -3,8 +3,10 @@ extends TileMap
 enum cell_types { empty = -1, player, obstacle, object, note, stair}
 var noteName
 var reading = false
-onready var dialogueBox = get_node("DialogueBox")
-				
+var changeScene = false
+onready var dialogueBox = get_node("CanvasLayer/DialogueBox")
+export (String, FILE, "*.tscn") var world_scene
+
 func get_note(coordinates):
 	for node in get_children():
 		if(node.get_class() == "Node2D"):
@@ -19,7 +21,9 @@ func request_position(pawn, direction, request):
 	if(request == "move"):
 		match cell_target_type:
 			empty: return map_to_world(cell_target) + cell_size / 2
-			stair: return map_to_world(cell_target) + cell_size / 2
+			stair: 
+				changeScene = true
+				return map_to_world(cell_target) + cell_size / 2
 			player: return map_to_world(cell_target) + cell_size / 2
 			note:
 				get_note(cell_target)
@@ -48,7 +52,9 @@ func _on_DialogueBox_end():
 
 func _on_Player_finish():
 	if(reading): read_note()
+	elif(changeScene): get_tree().change_scene(world_scene)
 
 func _ready():
-	noteName = "start"
-	read_note()
+	if(get_parent().name == "World1"):
+		noteName = "start"
+		read_note()

@@ -3,7 +3,7 @@ extends "pawn.gd"
 signal finish()
 
 onready var Grid = get_parent()
-var looking_direction
+var looking_direction = Vector2()
 
 # TODO: Update function for the animation when the character turns #
 
